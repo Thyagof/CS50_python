@@ -3,7 +3,7 @@ def main():
     print(define_media(file_name))
 
 def define_media(file):
-    if file.find('.') > -1: 
+    if "." in file: 
         extension = file.split(".")[1]
     else:
         return "application/octet-stream"
