@@ -2,4 +2,5 @@ def main():
     lower = input().lower()
     print(lower)
 
-main()
+if __name__ == "__main__":
+    main()

@@ -7,4 +7,5 @@ def convert(text):
     text = text.replace(":)", "🙂").replace(":(", "🙁")
     return text
 
-main()
+if __name__ == "__main__":
+    main()

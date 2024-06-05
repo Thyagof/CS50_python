@@ -4,4 +4,5 @@ def main():
     e = mass*(SPEED_LIGHT*SPEED_LIGHT)
     print(e)
 
-main()
+if __name__ == "__main__":
+    main()

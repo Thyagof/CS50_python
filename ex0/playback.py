@@ -2,4 +2,5 @@ def main():
     playback = input().replace(" ", "...")
     print(playback)
 
-main()
+if __name__ == "__main__":
+    main()
