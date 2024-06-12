@@ -1,17 +1,17 @@
 def main():
     s = input("Input: ")
-    print("Output:", remove_vowel(s))
+    print("Output:", shorten(s))
 
-def remove_vowel(s):
-    only_consonants = ""
-    for c in s:
-        if (c != "a" and c != "A"
-            and c != "e" and c != "E" 
-            and c != "i" and c != "I" 
-            and c != "o" and c != "o" 
-            and c != "u" and c != "U"):
-            only_consonants += c
-    return only_consonants
+def shorten(word):
+    shortened = ""
+    for l in word:
+        if (l != "a" and l != "A"
+            and l != "e" and l != "E" 
+            and l != "i" and l != "I" 
+            and l != "o" and l != "O" 
+            and l != "u" and l != "U"):
+            shortened += l
+    return shortened
         
 if __name__ == "__main__":
     main()

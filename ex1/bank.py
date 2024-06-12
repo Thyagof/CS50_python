@@ -1,8 +1,8 @@
 def main():
     greeting = input("Greeting: ").strip().lower()
-    print(is_hello(greeting))
+    print(value(greeting))
 
-def is_hello(greeting):
+def value(greeting):
     if greeting.startswith("hello"):
         return "$0"
     elif greeting.startswith("h"):

@@ -1,37 +1,28 @@
 def main():
-    print_percentage()
+    fraction = input("What's x/y: ").strip()
+    p = convert(fraction)
+    print(gauge(p))
 
-def print_percentage():
-    while True:
-        try:
-            x, y = input("What's x/y: ").split("/")
-        except ValueError:
-            print("x and y must be integers")
-            continue
+def convert(f):
+    x, y = f.split("/")
+    x, y = int(x), int(y)
+    
+    if y == 0:
+        raise ZeroDivisionError("y can't be zero")
+    
+    if x > y:
+        raise ValueError("y must be greater than x")
 
-        try:
-            x, y = int(x), int(y)
-        except ValueError:
-            print("x and y must be integers")
-            continue
-        
-        if x > y:
-            print("y must be greater than x")
-            continue
+    percentage = round((x/y)*100)
+    return percentage
 
-        try:
-           percentage = round((x/y)*100)
-        except ZeroDivisionError:
-            print("You can't divide by zero!")
-        else: 
-            break
-
-    if percentage <= 1:
-        print("E")
-    elif percentage >= 99:
-        print ("F")
+def gauge(p):
+    if p <= 1:
+        return "E"
+    elif p >= 99:
+        return "F"
     else:
-        print (f"{percentage}%")
+        return f"{p}%"
 
 if __name__ == "__main__":
     main()
