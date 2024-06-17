@@ -5,11 +5,7 @@ def main():
 def shorten(word):
     shortened = ""
     for l in word:
-        if (l != "a" and l != "A"
-            and l != "e" and l != "E" 
-            and l != "i" and l != "I" 
-            and l != "o" and l != "O" 
-            and l != "u" and l != "U"):
+        if l not in ["a", "A", "e", "E", "i", "I", "o", "O", "u", "U"]:
             shortened += l
     return shortened
         

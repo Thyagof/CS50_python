@@ -15,38 +15,33 @@ MONTHS = [
 
 def main():
     month, day, year = get_and_check_date()
-    print_formatted(month, day, year)
+    print(format_date(month, day, year))
 
 def get_and_check_date():
     while True:
+        date = input("Date: ")
         try:
-            date = input("Date: ").strip()
-        except KeyError:
-            continue
-
-        if "/" in date:
             m, d, y = date.split("/")
-        elif " " in date and "," in date:
-            m, d, y = date.split(" ")
-            d = d.strip(",")
-        else: 
-            continue
-        
-        if m.isalpha():
+            if (int(m)>=1 and int(m)<=12) and (int(d)>=1 and int(d)<=31):
+                break
+        except:
             try:
-                m = MONTHS.index(m) + 1
-            except ValueError:
-                continue
-        else:
-            m = int(m)
+                m, d, y = date.split(" ")
+                for i in range(len(MONTHS)):
+                    if m == MONTHS[i]:
+                        m = i+1
+                if "," in d:
+                    d = d.replace(",","")
+                else:
+                    continue
+                if (int(m)>=1 and int(m)<=12) and (int(d)>=1 and int(d)<=31):
+                    break
+            except:
+                pass
+    return int(m), int(d), int(y)
 
-        if int(d) > 31 or int(d) < 1 or m < 1 or m > 12:
-            continue
-
-        return m, int(d), int(y)
-
-def print_formatted(m,d,y):
-    print(f"{y}-{m:02}-{d:02}")
+def format_date(m,d,y):
+    return f"{y}-{m:02}-{d:02}"
 
 if __name__ == "__main__":
     main()

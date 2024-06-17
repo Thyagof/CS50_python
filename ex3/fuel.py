@@ -1,19 +1,18 @@
 def main():
-    fraction = input("What's x/y: ").strip()
-    p = convert(fraction)
-    print(gauge(p))
+    percentage = convert()
+    print(gauge(percentage))
 
-def convert(f):
-    x, y = f.split("/")
-    x, y = int(x), int(y)
-    
-    if y == 0:
-        raise ZeroDivisionError("y can't be zero")
-    
-    if x > y:
-        raise ValueError("y must be greater than x")
-
-    percentage = round((x/y)*100)
+def convert():
+    while True:
+        try:
+            f = input("What's x/y: ")
+            x, y = f.split("/")
+            x, y = int(x), int(y)
+            percentage = round((x/y)*100)
+            if percentage <= 100:
+                break
+        except (ValueError, ZeroDivisionError):
+            pass
     return percentage
 
 def gauge(p):
