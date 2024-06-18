@@ -9,12 +9,12 @@ def main():
         render_text()
     elif len(sys.argv) == 3:
         if sys.argv[1] != "-f" and sys.argv[1] != "--font" or invalid_font():
-            sys.exit()
+            sys.exit("Invalid usage")
         else:
             render_text(sys.argv[2])
-    else: 
-        sys.exit()
-        
+    else:
+        sys.exit("Invalid usage")
+
 def invalid_font():
     fonts = figlet.getFonts()
     return sys.argv[2] not in fonts

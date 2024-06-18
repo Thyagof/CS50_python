@@ -4,17 +4,17 @@ import sys
 
 def main():
     if len(sys.argv) != 2:
-        sys.exit()
+        sys.exit("Missing command-line argument")
 
     try:
         amount = float(sys.argv[1])
     except:
-        sys.exit()
-    
+        sys.exit(1)
+
     try:
         response = requests.get("https://api.coindesk.com/v1/bpi/currentprice.json")
     except requests.RequestException:
-        sys.exit()
+        sys.exit(1)
 
     r = response.json()
     bitcoin = r["bpi"]["USD"]["rate_float"]
