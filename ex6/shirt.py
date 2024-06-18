@@ -7,7 +7,6 @@ def main():
 
 def overlay_image():
     check_command_line_arg()
-
     try:
         photo = Image.open(sys.argv[1])
     except FileNotFoundError:
