@@ -1,5 +1,5 @@
-## Reaprendendo a programar em python usando o curso:  
-[CS50’s Introduction to Programming with Python](https://cs50.harvard.edu/python/2022/#)
+# Reaprendendo a programar em python usando o curso: 
+## [CS50’s Introduction to Programming with Python](https://cs50.harvard.edu/python/2022/#)
 
 ### Aulas
 0. [Functions, Variables](https://cs50.harvard.edu/python/2022/weeks/0/) ✅
