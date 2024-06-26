@@ -91,10 +91,40 @@ def main():
     figlet.setFont(font="drpepper")
     print(figlet.renderText("A Pokemon Wordle-like"))
     game()
-
+    while True:
+        print("\nPlay again?") 
+        print("Press 1 to continue")
+        print("Press 2 to quit")
+        x = int(input())
+        if x == 1:
+            game()
+        elif x == 2:
+            break
+        else:
+            print("invalid command")
 
 def game():
-    start, ending = select_gen()
+    while True:
+        try:
+            gen_a = int(input("Select the starting generation: "))
+            if not valid_gen(gen_a):
+                print("Invalid generation")
+            else:
+                break
+        except:
+            pass
+    
+    while True:
+        try:
+            gen_b = int(input("Select the ending generation: "))
+            if not valid_gen(gen_a, gen_b):
+                print("Invalid generation")
+            else:
+                break
+        except:
+            pass
+
+    start, ending = get_gen_index(gen_a, gen_b)
     poke_number = randint(start,ending)
     poke = get_pokemon(poke_number)
     i = 0
@@ -128,8 +158,9 @@ def game():
                 else:
                     print("Weight: " + str(poke_guess.weight) + " 🔻", end="\n\n")
                 i += 1
-        else:
-            print("Pokémon not found, try again.")
+            else:
+                print("Pokémon not found, try again.")
+        else:    
             break
     if i != 9:
         print("\nYou won!")
@@ -142,30 +173,21 @@ def game():
         print("Weight: " + str(poke.weight) + " ✅")
     else:
         print("\nYou lose!")
-        print("The secret Pokémon was:")
-        print("Name: " + poke.name)
+        print("The secret Pokémon was: " + poke.name)
 
-def select_gen():
-    while True:
-        try:
-            gen_a = int(input("Select the starting generation: "))
-            if gen_a < 1 or gen_a > 9:
-                print("Invalid generation")
-            else:
-                break
-        except:
-            pass
-    
-    while True:
-        try:
-            gen_b = int(input("Select the ending generation: "))
-            if gen_b < gen_a or gen_a > 9:
-                print("Invalid generation")
-            else:
-                break
-        except:
-            pass
-    
+def valid_gen(gen_a, gen_b=None):
+    if gen_b == None:
+        if gen_a < 1 or gen_a > 9:
+            return False
+        else:
+            return True
+    else:
+        if gen_b < gen_a or gen_b > 9:
+            return False
+        else:
+            return True
+
+def get_gen_index(gen_a, gen_b):
     start_index = Pokemon.GENERATIONS[gen_a][0]
     end_index = Pokemon.GENERATIONS[gen_b][1]
     return start_index, end_index
@@ -176,7 +198,10 @@ def get_pokemon(poke):
     except requests.RequestException:
         return None
     
-    r = response.json()
+    try:
+        r = response.json()
+    except requests.exceptions.JSONDecodeError:
+        return None
 
     if len(r["types"]) == 1:
         poke = Pokemon(r["id"],
@@ -192,7 +217,6 @@ def get_pokemon(poke):
                     r["types"][1]["type"]["name"],
                     r["height"],
                     r["weight"])
-    
     return poke
 
 if __name__ == "__main__":
