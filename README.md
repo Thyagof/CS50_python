@@ -9,6 +9,6 @@
 4. [Libraries](https://cs50.harvard.edu/python/2022/weeks/4/) ✅
 5. [Unit Tests](https://cs50.harvard.edu/python/2022/weeks/5/) ✅
 6. [File I/O](https://cs50.harvard.edu/python/2022/weeks/6/) ✅
-7. [Regular Expressions](https://cs50.harvard.edu/python/2022/weeks/7/)
-8. [Object-Oriented Programming](https://cs50.harvard.edu/python/2022/weeks/8/)
-9. [Et Cetera](https://cs50.harvard.edu/python/2022/weeks/9/)
+7. [Regular Expressions](https://cs50.harvard.edu/python/2022/weeks/7/) ✅
+8. [Object-Oriented Programming](https://cs50.harvard.edu/python/2022/weeks/8/) ✅
+9. [Et Cetera](https://cs50.harvard.edu/python/2022/weeks/9/) ✅
