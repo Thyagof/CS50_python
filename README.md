@@ -1,4 +1,4 @@
-# Reaprendendo a programar em python usando o curso: 
+# Introduction to Programming with Python: 
 ## [CS50’s Introduction to Programming with Python](https://cs50.harvard.edu/python/2022/#)
 
 ### Aulas
